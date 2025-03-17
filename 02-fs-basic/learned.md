@@ -38,3 +38,8 @@
 - it will take two arguments. readFileName and callback function. an this function take two parameter , error, files.
 - if error happen i will show error otherwise it will show file in binary format
 - e.g: `fs.unlink("existFile.txt",(err,files)=>{})`
+
+### `mkdir()` - create directory / folders
+- it will create a single or nested directory for nested directory one extra info need in the arguments : `{recursive:true}`
+- it will take two arguments: directory, {recursive:true} if nested directory created and lastly callback function 
+- e.g: `fs.mkdir("new/childNew/hellNew",{recursive:true},(err)=>{ })`

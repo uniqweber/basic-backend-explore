@@ -1,8 +1,8 @@
 const fs = require("fs");
 
-fs.writeFile("hello.txt", "hello world", (err) => {
-  console.log(err ? err : "file created");
-});
+// fs.writeFile("hello.txt", "hello world", (err) => {
+//   console.log(err ? err : "file created");
+// });
 
 // fs.appendFile("propose.txt", "hello", () => {
 //   console.log(err ? err : "new text added");
@@ -20,7 +20,10 @@ fs.writeFile("hello.txt", "hello world", (err) => {
 //   console.log(err ? err : "file deleted");
 // });
 
-
 // fs.readFile("hello.txt", (err, files) => {
 //   console.log(err ? err : files.toString());
 // });
+
+fs.mkdir("new/something/hello.txt", {recursive: true}, (err) => {
+  console.log(err ? err : "folder created");
+});
