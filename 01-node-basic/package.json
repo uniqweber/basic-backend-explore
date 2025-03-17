@@ -1,0 +1,13 @@
+{
+  "name": "01-node-basic",
+  "version": "1.0.0",
+  "main": "nodeBasic.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Rayan Ahmed",
+  "license": "ISC",
+  "description": ""
+}
