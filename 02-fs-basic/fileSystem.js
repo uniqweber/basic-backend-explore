@@ -24,6 +24,14 @@ const fs = require("fs");
 //   console.log(err ? err : files.toString());
 // });
 
-fs.mkdir("new/something/hello.txt", {recursive: true}, (err) => {
-  console.log(err ? err : "folder created");
+// fs.mkdir("new/something/hello.txt", {recursive: true}, (err) => {
+//   console.log(err ? err : "folder created");
+// });
+
+// fs.rm("something/new", {recursive: true}, (err) => {
+//   console.log(err ? err : "folder deleted");
+// });
+
+fs.readdir("./", (err, files) => {
+  console.log(err ? err : files);
 });
