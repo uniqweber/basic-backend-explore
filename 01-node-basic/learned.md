@@ -6,4 +6,7 @@
 
 ### 02. Setup Node Project
 - run in terminal ```npm init -y``` it will create package.json file with all information 
-- 
+- if you want to give manually information then run ```npm init```
+
+### 03. Module System
+- this 
