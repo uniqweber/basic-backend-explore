@@ -1,0 +1,16 @@
+{
+  "name": "01-basic-structure",
+  "version": "1.0.0",
+  "main": "basicStructure.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
