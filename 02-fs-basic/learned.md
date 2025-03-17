@@ -26,3 +26,15 @@
 - it will copy file if the file existed. if not it will show error.
 - it will also take three arguments: path, copyDestination, callback function
 - e.g: `fs.copyFile('prev.txt',"new.txt"|"./something/filename.txt", (err)=>{ })`
+
+### `unlink()` - delete existing file
+
+- if file exists it will delete the file. if not exist it will show en err.
+- it will take two arguments. deletedFileName and callback Function
+- e.g: `fs.unlink("exist.txt",(err)=>{})`
+
+### `readFile()` - read existing file
+- if file exist it will read otherwise it will show err
+- it will take two arguments. readFileName and callback function. an this function take two parameter , error, files.
+- if error happen i will show error otherwise it will show file in binary format
+- e.g: `fs.unlink("existFile.txt",(err,files)=>{})`

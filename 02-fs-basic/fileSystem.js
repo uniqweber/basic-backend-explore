@@ -1,8 +1,8 @@
 const fs = require("fs");
 
-// fs.writeFile("hello.txt", "hello world", (err) => {
-//   console.log(err ? err : "file created");
-// });
+fs.writeFile("hello.txt", "hello world", (err) => {
+  console.log(err ? err : "file created");
+});
 
 // fs.appendFile("propose.txt", "hello", () => {
 //   console.log(err ? err : "new text added");
@@ -12,6 +12,15 @@ const fs = require("fs");
 //   console.log(err ? err : "file renamed");
 // });
 
-fs.copyFile("propose4.txt", "propose4.txt", (err) => {
-  console.log(err ? err : "file copied");
-});
+// fs.copyFile("propose4.txt", "propose4.txt", (err) => {
+//   console.log(err ? err : "file copied");
+// });
+
+// fs.unlink("propose3.txt", (err) => {
+//   console.log(err ? err : "file deleted");
+// });
+
+
+// fs.readFile("hello.txt", (err, files) => {
+//   console.log(err ? err : files.toString());
+// });
