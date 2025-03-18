@@ -13,5 +13,11 @@ app.get("/", (req, res) => {
     err ? console.log(err) : res.render("index", {notes: files});
   });
 });
+app.post("/create-notes", (req, res) => {
+  const {title} = req.body;
+  fs.writeFile(`notes/${title.split(" ").join("")}.txt`, "", (err) => {
+    err ? console.log(err) : res.redirect("/");
+  });
+});
 
 app.listen(3000, () => console.log("server running on port", 3000));
