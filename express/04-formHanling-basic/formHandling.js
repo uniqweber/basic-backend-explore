@@ -13,10 +13,18 @@ app.get("/", (req, res) => {
     err ? console.log(err) : res.render("index", {notes: files});
   });
 });
+
 app.post("/create-notes", (req, res) => {
-  const {title} = req.body;
-  fs.writeFile(`notes/${title.split(" ").join("")}.txt`, "", (err) => {
+  const {title, note} = req.body;
+  fs.writeFile(`notes/${title.split(" ").join("")}.txt`, note, (err) => {
     err ? console.log(err) : res.redirect("/");
+  });
+});
+
+app.get("/create-notes/:note", (req, res) => {
+  const title = req.params.note;
+  fs.readFile(`notes/${title}`, "utf-8", (err, noteFile) => {
+    err ? console.log(err) : res.render("note", {title, note: noteFile});
   });
 });
 

@@ -12,3 +12,15 @@
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 ```
+
+### handle form data
+- create form with input textarea submit button 
+- give name to the input and textarea to access their value
+- now in the form action set a route like: `/create-new-notes`
+- and give the form a method like: `post`
+- now create a route in the server file
+- now you can check what user send on submit using: `req.body`
+- now you can do whatever you want to do with this data
+
+### form data showing on the client side
+- 

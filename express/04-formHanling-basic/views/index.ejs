@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Document</title>
+    <title>All Nodes</title>
   </head>
   <body class="bg-zinc-900 text-white">
     <div class="max-w-screen-xl p-10 mx-auto">
@@ -16,13 +16,13 @@
           name="note"
           placeholder="Enter your note"
         ></textarea>
-        <button class="bg-blue-600 cursor-pointer px-10 h-11 rounded-md" type="submit">Add Note</button>
+        <button class="bg-blue-600 cursor-pointer px-10 h-11 rounded-md" type="submit">Create Note</button>
       </form>
       <div class="border-t border-zinc-800 grid grid-cols-4 gap-3 mt-10 py-10">
         <% if(notes.length > 0) { %> <% notes.forEach(note => { %>
         <div class="bg-zinc-800 p-4 rounded-md">
           <h1 class="text-xl font-semibold"><%= note.split(".txt").join(" ") %></h1>
-          <a href="" class="text-blue-600">see more</a>
+          <a href="/create-notes/<%= note %>" class="text-blue-600">see more</a>
         </div>
         <% }) %> <% } else { %>
         <h5 class="text-center col-span-4 text-zinc-700 text-2xl mt-32">No notes found!</h5>
