@@ -18,11 +18,19 @@
         ></textarea>
         <button class="bg-blue-600 cursor-pointer px-10 h-11 rounded-md" type="submit">Create Note</button>
       </form>
-      <div class="border-t border-zinc-800 grid grid-cols-4 gap-3 mt-10 py-10">
+
+      <div class="border-t border-zinc-800 grid grid-cols-4 gap-3 mt-10 py-10 relative">
+        <a href="/delete-all" class="absolute -top-13 right-0 text-red-800">Delete All</a>
         <% if(notes.length > 0) { %> <% notes.forEach(note => { %>
         <div class="bg-zinc-800 p-4 rounded-md">
           <h1 class="text-xl font-semibold"><%= note.split(".txt").join(" ") %></h1>
-          <a href="/create-notes/<%= note %>" class="text-blue-600">see more</a>
+          <div class="flex items-center justify-between">
+            <a href="/create-notes/<%= note %>" class="text-blue-600">see more</a>
+            <div class="flex items-center gap-3">
+              <a href="/edit-notes/<%= note %>" class="text-zinc-500">edit </a>
+              <a href="/delete-notes/<%= note %>" class="text-red-800">Delete </a>
+            </div>
+          </div>
         </div>
         <% }) %> <% } else { %>
         <h5 class="text-center col-span-4 text-zinc-700 text-2xl mt-32">No notes found!</h5>

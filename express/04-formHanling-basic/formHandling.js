@@ -28,4 +28,36 @@ app.get("/create-notes/:note", (req, res) => {
   });
 });
 
+app.get("/edit-notes/:note", (req, res) => {
+  const title = req.params.note;
+  res.render("edit", {title});
+});
+
+app.post("/edit-notes", (req, res) => {
+  const {oldTitle, newTitle} = req.body;
+  fs.rename(`notes/${oldTitle}`, `notes/${newTitle}`, (err) => {
+    err ? console.log(err) : res.redirect("/");
+  });
+});
+
+// delete single notes
+app.get("/delete-notes/:note", (req, res) => {
+  const title = req.params.note;
+  fs.unlink(`notes/${title}`, (err) => {
+    err ? console.log(err) : res.redirect("/");
+  });
+});
+
+// delete all notes
+app.get("/delete-all", (req, res) => {
+  fs.readdir("notes", (err, allNotes) => {
+    allNotes.forEach((note) => {
+      fs.unlink(`notes/${note}`, (err) => {
+        err && console.log(err);
+      });
+    });
+  });
+  res.redirect("/");
+});
+
 app.listen(3000, () => console.log("server running on port", 3000));

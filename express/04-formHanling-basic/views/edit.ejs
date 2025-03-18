@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Edit Title</title>
+  </head>
+  <body class="bg-zinc-900 text-white">
+    <div class="max-w-screen-xl p-10 mx-auto">
+      <a href="/" class="text-blue-600">Go back to home</a>
+      <div class="mt-10">
+        <form action="/edit-notes" method="post" class="w-full space-y-3 max-w-md">
+          <input
+            readonly
+            class="block w-full h-12 rounded-md outline-none bg-zinc-800 px-4"
+            type="text"
+            name="oldTitle"
+            value="<%= title %>"
+            placeholder="Enter your title"
+          />
+          <input required class="block w-full h-12 rounded-md outline-none bg-zinc-800 px-4" type="text" name="newTitle" placeholder="Edit your title" />
+          <button class="bg-yellow-600 cursor-pointer px-10 h-11 rounded-md" type="submit">Update Note</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
