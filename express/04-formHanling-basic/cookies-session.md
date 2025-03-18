@@ -62,3 +62,13 @@ app.get("/dashboard", (req, res) => {
   res.send(req.session.user ? `Welcome ${req.session.user}` : "Not logged in");
 });
 ```
+## Key Differences Between Session & Cookie
+| Feature    | Cookie | Session |
+| -------- | ------- | -------- |
+| Stored Location	  | Browser (Client-side)    | Server (Backend)
+| Data Size  | Small (4KB max)    | Large
+| Security  | Less secure (can be accessed by JS)   | More secure (stored on server)
+| Expiration  | Can be set manually   | Expires after session timeout
+
+	
+		
