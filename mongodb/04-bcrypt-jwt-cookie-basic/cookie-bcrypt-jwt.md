@@ -2,6 +2,7 @@
 
 - for send cookie `res.cookie("anyName","whatToStore")`
 - for read cookie `req.cookies.anyName`
+- too see cookie we need to install `npm i cookie-parser`
 
 ## bcrypt
 
