@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Edit</title>
+  </head>
+  <body class="bg-zinc-900 text-white">
+    <main class="max-w-screen-xl mx-auto p-10">
+      <nav class="flex items-center justify-between">
+        <h5>LOGO</h5>
+        <div class="flex items-center gap-3">
+          <a href="/" class="text-blue-500">Create User</a>
+          <a href="/all-user" class="text-blue-500">All User</a>
+        </div>
+      </nav>
+      <form action="/edit/<%= user._id %>" method="post" class="max-w-md mx-auto space-y-3 mt-40">
+        <h1 class="text-xl mt-7 font-semibold">Update user</h1>
+        <input
+          type="text"
+          class="block w-full h-12 bg-zinc-800 px-4 rounded-md outline-none"
+          name="name"
+          placeholder="Name"
+          value="<%= user.name %>"
+        />
+        <input
+          type="text"
+          class="block w-full h-12 bg-zinc-800 px-4 rounded-md outline-none"
+          name="email"
+          placeholder="Email"
+          value="<%= user.email %>"
+        />
+        <input
+          type="text"
+          class="block w-full h-12 bg-zinc-800 px-4 rounded-md outline-none"
+          name="photoUrl"
+          placeholder="Photo url"
+          value="<%= user.photoUrl %>"
+        />
+        <button type="submit" class="h-11 w-full text-white bg-yellow-500 rounded-md">Update</button>
+      </form>
+    </main>
+  </body>
+</html>
