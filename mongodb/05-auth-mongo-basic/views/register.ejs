@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Register</title>
+  </head>
+  <body class="bg-zinc-900 text-white">
+    <main class="max-w-screen-xl mx-auto p-10">
+      <nav class="flex items-center gap-5 justify-end text-blue-500">
+        <a href="/">Home</a>
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
+        <a href="/logout">Logout</a>
+      </nav>
+      <div class="mt-40 max-w-md mx-auto">
+        <h2 class="text-xl mb-4 text-gray-200">Register</h2>
+        <form action="/register" method="POST" class="space-y-3">
+          <input class="block px-4 h-12 w-full bg-zinc-800 rounded-md outline-none" type="text" name="name" placeholder="Name" />
+          <input class="block px-4 h-12 w-full bg-zinc-800 rounded-md outline-none" type="email" name="email" placeholder="Email" />
+          <input class="block px-4 h-12 w-full bg-zinc-800 rounded-md outline-none" type="text" name="password" placeholder="Password" />
+          <button class="bg-blue-500 w-full py-2 rounded-md" type="submit">Register</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
