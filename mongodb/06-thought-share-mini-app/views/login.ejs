@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Register</title>
+  </head>
+  <body class="">
+    <div class="h-screen flex flex-row-reverse">
+      <div class="w-full bg-gray-100 h-full flex items-center justify-center">
+        <div class="max-w-sm w-full space-y-3">
+          <h1 class="text-xl text-zinc-800 pb-2 font-semibold">Login Form</h1>
+          <input type="text" class="block bg-white w-full h-11 border border-gray-200 rounded-md px-4 outline-none" placeholder="Enter your email" />
+          <input
+            type="text"
+            class="block bg-white w-full h-11 border border-gray-200 rounded-md px-4 outline-none"
+            placeholder="Enter your password"
+          />
+          <button class="h-10 rounded-md text-white bg-zinc-800 border-none w-full">Login</button>
+          <p class="text-sm text-center pt-2">
+            Don't have an account?
+            <a href="/register" class="text-blue-600">Register</a>
+          </p>
+        </div>
+      </div>
+      <div class="w-full flex items-center justify-center h-full">
+        <img src="/image/local/login.svg" class="w-3/6" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
