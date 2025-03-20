@@ -20,26 +20,38 @@
   <body class="text-sm font-medium">
     <div class="h-screen flex flex-row-reverse">
       <div class="w-full bg-gray-100 h-full flex items-center justify-center">
-        <div class="max-w-sm w-full space-y-3">
+        <form action="/register" method="post" class="max-w-sm w-full space-y-3">
           <h1 class="text-xl text-zinc-800 pb-2 font-semibold">Registration Form</h1>
-          <input type="text" class="block bg-white w-full h-11 border border-gray-200 rounded-md px-4 outline-none" placeholder="Enter your name" />
+          <input
+            type="text"
+            class="block bg-white w-full h-11 border border-gray-200 rounded-md px-4 outline-none"
+            placeholder="Enter your name"
+            name="name"
+          />
           <input
             type="text"
             class="block bg-white w-full h-11 border border-gray-200 rounded-md px-4 outline-none"
             placeholder="Enter your username"
+            name="username"
           />
-          <input type="text" class="block bg-white w-full h-11 border border-gray-200 rounded-md px-4 outline-none" placeholder="Enter your email" />
           <input
-            type="text"
+            type="email"
+            class="block bg-white w-full h-11 border border-gray-200 rounded-md px-4 outline-none"
+            placeholder="Enter your email"
+            name="email"
+          />
+          <input
+            type="password"
             class="block bg-white w-full h-11 border border-gray-200 rounded-md px-4 outline-none"
             placeholder="Enter your password"
+            name="password"
           />
-          <button class="h-10 rounded-md text-white bg-zinc-800 border-none w-full">Register</button>
+          <button type="submit" class="h-10 rounded-md text-white bg-zinc-800 border-none w-full">Register</button>
           <p class="text-sm text-center pt-2">
             Already have an account?
             <a href="/login" class="text-blue-600">Login</a>
           </p>
-        </div>
+        </form>
       </div>
       <div class="w-full flex items-center justify-center h-full">
         <img src="/image/local/register.svg" class="w-3/6" alt="" />

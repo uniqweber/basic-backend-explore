@@ -20,7 +20,7 @@
   <body class="text-sm font-medium">
     <div class="h-screen flex flex-row-reverse">
       <div class="w-full bg-gray-100 h-full flex items-center justify-center">
-        <div class="max-w-sm w-full space-y-3">
+        <form accept="/login" method="post" class="max-w-sm w-full space-y-3">
           <h1 class="text-xl text-zinc-800 pb-2 font-semibold">Login Form</h1>
           <input type="text" class="block bg-white w-full h-11 border border-gray-200 rounded-md px-4 outline-none" placeholder="Enter your email" />
           <input
@@ -33,7 +33,7 @@
             Don't have an account?
             <a href="/register" class="text-blue-600">Register</a>
           </p>
-        </div>
+        </form>
       </div>
       <div class="w-full flex items-center justify-center h-full">
         <img src="/image/local/login.svg" class="w-3/6" alt="" />

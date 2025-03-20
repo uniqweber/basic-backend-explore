@@ -7,22 +7,31 @@ const register = async (req, res) => {
     const {name, username, email, password} = req.body;
     const formatUsername = username?.split(" ").join("").toLowerCase();
 
-    // check user exists or not
-    const isUserExists = await User.find({email});
+    const isUserExists = await User.findOne({email});
     if (isUserExists) return res.json({message: "User already exists"});
 
-    // secure user password
-    const hashPassword = await bcrypt.hash(password, 10);
+    const salt = await bcrypt.genSalt(10);
+    const hashPassword = await bcrypt.hash(password, salt);
 
-    // save the user in the database
     await User.create({name, username: formatUsername, email, password: hashPassword});
-
-    // create auth token save in the cookie
     const authToken = jwt.sign({email}, process.env.JWT_SECRET_KEY);
+
     res.cookie("authToken", authToken);
     res.redirect("/profile");
-    
   } catch (error) {
-    console.log(error);
+    console.log("register error:", error);
+    res.json({message: "Something went wrong!"});
   }
 };
+
+const logout = async (req, res) => {
+  try {
+    res.clearCookie("authToken");
+    res.redirect("/login");
+  } catch (error) {
+    console.log("Logout error:", error);
+    res.json({message: "Something went wrong!"});
+  }
+};
+
+module.exports = {register, logout};
