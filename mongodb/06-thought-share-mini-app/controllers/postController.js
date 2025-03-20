@@ -24,10 +24,42 @@ const createPost = async (req, res) => {
   }
 };
 
+const likePost = async (req, res) => {
+  const {postId, userId} = req.params;
+
+  const post = await Post.findById(postId);
+  if (post.likes?.indexOf(userId) === -1) {
+    await Post.findByIdAndUpdate(postId, {$push: {likes: userId}}, {new: true});
+  } else {
+    await Post.findByIdAndUpdate(postId, {$pull: {likes: userId}}, {new: true});
+  }
+  res.redirect(`/profile/${userId}`);
+};
+
+const editPost = async (req, res) => {
+  try {
+    const {postId, userId} = req.params;
+    const post = await Post.findById(postId);
+    res.render("editPost", {content: post.content, userId, postId});
+  } catch (error) {
+    console.log("Edit Post:", error);
+  }
+};
+
+const updatePost = async (req, res) => {
+  try {
+    const content = req.body.content;
+    const {userId, postId} = req.params;
+    await Post.findOneAndUpdate({_id: postId}, {content}, {new: true});
+    res.redirect(`/profile/${userId}`);
+  } catch (error) {
+    console.log("Post Update:", error);
+  }
+};
+
 const deletePost = async (req, res) => {
   try {
-    const userId = req.params.userId;
-    const postId = req.params.postId;
+    const {postId, userId} = req.params;
 
     await User.findByIdAndUpdate(userId, {$pull: {posts: postId}});
     await Post.findByIdAndDelete(postId);
@@ -38,4 +70,4 @@ const deletePost = async (req, res) => {
   }
 };
 
-module.exports = {createPost, userProfile, deletePost};
+module.exports = {userProfile, createPost, likePost, editPost, updatePost, deletePost};

@@ -19,14 +19,16 @@
   </head>
   <body class="text-sm font-medium">
     <div class="flex items-center justify-center h-screen">
-      <form method="post" class="mt-5 space-y-3 max-w-md w-full">
+      <form action="/profile/<%= userId %>/update-post/<%= postId %>" method="post" class="mt-5 space-y-3 max-w-md w-full">
         <textarea
-          name="post"
+          name="content"
           placeholder="What's on your mind?"
           class="resize-none w-full h-32 rounded-md border-gray-300 outline-none border p-4"
-        ></textarea>
+        >
+<%= content %></textarea
+        >
         <div class="flex items-center justify-between gap-5">
-            <a href="/profile" class="text-red-400">Cancel Update</a>
+          <a href="/profile/<%= userId %>" class="text-red-400">Cancel Update</a>
           <button type="submit" class="h-10 inline-flex items-center justify-center px-10 rounded-md text-zinc-800 bg-yellow-400">Update Post</button>
         </div>
       </form>
