@@ -22,13 +22,21 @@
       <div class="w-full bg-gray-100 h-full flex items-center justify-center">
         <form accept="/login" method="post" class="max-w-sm w-full space-y-3">
           <h1 class="text-xl text-zinc-800 pb-2 font-semibold">Login Form</h1>
-          <input type="text" class="block bg-white w-full h-11 border border-gray-200 rounded-md px-4 outline-none" placeholder="Enter your email" />
+          <input
+            type="email"
+            class="block bg-white w-full h-11 border border-gray-200 rounded-md px-4 outline-none"
+            placeholder="Enter your email"
+            name="email"
+            required
+          />
           <input
             type="text"
             class="block bg-white w-full h-11 border border-gray-200 rounded-md px-4 outline-none"
             placeholder="Enter your password"
+            name="password"
+            required
           />
-          <button class="h-10 rounded-md text-white bg-zinc-800 border-none w-full">Login</button>
+          <button type="submit" class="h-10 rounded-md text-white bg-zinc-800 border-none w-full">Login</button>
           <p class="text-sm text-center pt-2">
             Don't have an account?
             <a href="/register" class="text-blue-600">Register</a>
