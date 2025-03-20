@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Login</title>
+    <title><%= user.name %></title>
     <style>
       body {
         font-family: "Montserrat", sans-serif;
@@ -23,8 +23,8 @@
         <div class="flex items-center gap-3">
           <img class="size-12 rounded-md object-cover object-center" src="/image/uploads/default.jpeg" alt="" />
           <div>
-            <h2 class="text-lg text-zinc-800">Rayan Ahmed</h2>
-            <span class="text-zinc-400">@username</span>
+            <h2 class="text-lg text-zinc-800"><%= user.name %></h2>
+            <span class="text-zinc-400">@<%= user.username %></span>
           </div>
         </div>
         <div class="flex items-center gap-5">
@@ -33,28 +33,33 @@
           <a href="/logout" class="h-10 inline-flex items-center justify-center px-10 rounded-md text-white bg-red-400">Logout</a>
         </div>
       </nav>
-      <form class="mt-5 space-y-3 max-w-md w-full">
+      <form action="/profile/<%= user._id %>/post" method="POST" class="mt-5 space-y-3 max-w-md w-full">
         <textarea
-          name="post"
+          name="content"
           placeholder="What's on your mind?"
           class="resize-none w-full h-32 rounded-md border-gray-300 outline-none border p-4"
         ></textarea>
         <button class="h-10 inline-flex items-center justify-center px-10 rounded-md text-white bg-indigo-400">Post</button>
       </form>
-      <h2 class="bg-indigo-100 my-5 h-10 flex items-center justify-center rounded-md border-gray-300 text-lg text-zinc-800">My Posts</h2>
+      <h2 class="bg-indigo-100 my-5 h-10 flex items-center justify-center rounded-md border-gray-300 text-lg text-zinc-800">
+        <span>My Posts -</span>
+        <span class="text-zinc-400 pl-1.5">( <%= user.posts.length %> )</span>
+      </h2>
       <div class="grid grid-cols-3 gap-5">
+        <% user.posts.forEach((post) => { %>
         <div class="p-4 bg-gray-50 border border-gray-200 rounded-md">
-          <span class="text-zinc-400">@username</span>
-          <p class="text-zinc-800 mt-1 mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
+          <span class="text-zinc-400">@<%= user.username %></span>
+          <p class="text-zinc-800 mt-1 mb-2"><%= post.content %></p>
           <div class="flex items-center justify-between font-semibold">
-            <div class="text-indigo-400">0 likes</div>
+            <div class="text-indigo-400"><%= post.likes.length %></div>
             <div class="flex gap-3 items-center">
               <a href="/like" class="text-gray-400">Like</a>
               <a href="/edit-post" class="text-gray-400">Edit</a>
-              <a href="/delete" class="text-gray-400">Delete</a>
+              <a href="/delete/<%= user._id %>/delete-post/<%= post._id %>" class="text-gray-400">Delete</a>
             </div>
           </div>
         </div>
+        <% }) %>
       </div>
     </div>
   </body>
