@@ -13,11 +13,11 @@ const register = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(password, salt);
 
-    await User.create({name, username: formatUsername, email, password: hashPassword});
-    const authToken = jwt.sign({email}, process.env.JWT_SECRET_KEY);
+    const newUser = await User.create({name, username: formatUsername, email, password: hashPassword});
+    const authToken = jwt.sign({email, id: newUser._id}, process.env.JWT_SECRET_KEY);
 
     res.cookie("authToken", authToken);
-    res.redirect("/profile");
+    res.redirect(`/profile/${newUser._id}`);
   } catch (error) {
     console.log("register error:", error);
     res.json({message: "Something went wrong!"});
@@ -34,9 +34,9 @@ const login = async (req, res) => {
     const validPassword = await bcrypt.compare(password, isRegisteredUser.password);
     if (!validPassword) return res.join({message: "Wrong password"});
 
-    const token = jwt.sign({email}, process.env.JWT_SECRET_KEY);
-    res.cookie("authToken", token);
-    res.redirect("/profile");
+    const authToken = jwt.sign({email, id: isRegisteredUser._id}, process.env.JWT_SECRET_KEY);
+    res.cookie("authToken", authToken);
+    res.redirect(`/profile/${isRegisteredUser._id}`);
   } catch (error) {
     console.log("login error:", error);
     res.json({message: "Something went wrong!"});
