@@ -25,13 +25,17 @@ const createPost = async (req, res) => {
 };
 
 const deletePost = async (req, res) => {
-  const userId = req.params.userId;
-  const postId = req.params.postId;
+  try {
+    const userId = req.params.userId;
+    const postId = req.params.postId;
 
-  await User.findByIdAndUpdate(userId, {$pull: {posts: postId}});
-  await Post.findByIdAndDelete(postId);
+    await User.findByIdAndUpdate(userId, {$pull: {posts: postId}});
+    await Post.findByIdAndDelete(postId);
 
-  res.redirect("/login");
+    res.redirect("/login");
+  } catch (error) {
+    console.log("Delete error:", error);
+  }
 };
 
 module.exports = {createPost, userProfile, deletePost};
