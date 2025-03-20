@@ -21,9 +21,15 @@
     <div class="max-w-screen-xl px-10 pb-10 mx-auto">
       <nav class="flex items-center justify-between h-16 border-b border-gray-200 mb-5">
         <h2>All Thoughts</h2>
-        <div class="flex items-center gap-5">
-          <a href="/profile/<%= userId %>" class="text-gray-400">Profile</a>
-          <a href="/logout" class="h-10 inline-flex items-center justify-center px-10 rounded-md text-white bg-red-400">Logout</a>
+        <div >
+          <% if(userId) { %>
+          <div class="flex items-center gap-5">
+            <a href="/profile/<%= userId %>" class="text-gray-400">Profile</a>
+            <a href="/logout" class="h-10 inline-flex items-center justify-center px-10 rounded-md text-white bg-red-400">Logout</a>
+          </div>
+          <% } else { %>
+          <a href="/login" class="h-10 inline-flex items-center justify-center px-10 rounded-md text-white bg-indigo-400">Login</a>
+          <% } %>
         </div>
       </nav>
       <div>
@@ -39,7 +45,7 @@
                 <a href="/profile/<%= post.author._id %>/like-post/<%= post._id %>" class="text-gray-400">
                   <%= post.likes?.includes(userId) ? "Unlike" : "Like" %>
                 </a>
-                <% if(post.author._id == userId) { %>
+                <% if(post.author?._id == userId) { %>
                 <a href="/profile/<%= post.author._id %>/edit-post/<%= post._id %>" class="text-gray-400">Edit</a>
                 <a href="/profile/<%= post.author._id %>/delete-post/<%= post._id %>" class="text-gray-400">Delete</a>
                 <% } %>
