@@ -17,13 +17,13 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 app.get("/profile", (req, res) => {
-  res.send("");
+  res.render("profile");
 });
-app.get("/edit-thoughts", (req, res) => {
-  res.send("");
+app.get("/edit-post", (req, res) => {
+  res.render("postEdit");
 });
-app.get("/edit-profile-picture", (req, res) => {
-  res.send("");
+app.get("/edit-profile", (req, res) => {
+  res.render("editProfile");
 });
 
 app.listen(3000);

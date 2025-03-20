@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Login</title>
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="text-sm font-medium">
+    <div class="max-w-screen-2xl p-10">
+      <nav class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <img class="size-12 rounded-md object-cover object-center" src="/image/uploads/default.jpeg" alt="" />
+          <div>
+            <h2 class="text-lg text-zinc-800">Rayan Ahmed</h2>
+            <span class="text-zinc-400">@username</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-5">
+          <a href="/edit-profile" class="text-gray-400">Edit Profile</a>
+          <a href="/" class="text-gray-400">All Post</a>
+          <a href="/logout" class="h-10 inline-flex items-center justify-center px-10 rounded-md text-white bg-red-400">Logout</a>
+        </div>
+      </nav>
+      <form class="mt-5 space-y-3 max-w-md w-full">
+        <textarea
+          name="post"
+          placeholder="What's on your mind?"
+          class="resize-none w-full h-32 rounded-md border-gray-300 outline-none border p-4"
+        ></textarea>
+        <button class="h-10 inline-flex items-center justify-center px-10 rounded-md text-white bg-indigo-400">Post</button>
+      </form>
+      <h2 class="bg-indigo-100 my-5 h-10 flex items-center justify-center rounded-md border-gray-300 text-lg text-zinc-800">My Posts</h2>
+      <div class="grid grid-cols-3 gap-5">
+        <div class="p-4 bg-gray-50 border border-gray-200 rounded-md">
+          <span class="text-zinc-400">@username</span>
+          <p class="text-zinc-800 mt-1 mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
+          <div class="flex items-center justify-between font-semibold">
+            <div class="text-indigo-400">0 likes</div>
+            <div class="flex gap-3 items-center">
+              <a href="/like" class="text-gray-400">Like</a>
+              <a href="/edit-post" class="text-gray-400">Edit</a>
+              <a href="/delete" class="text-gray-400">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

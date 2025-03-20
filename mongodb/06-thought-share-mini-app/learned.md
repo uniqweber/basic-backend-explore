@@ -40,3 +40,7 @@ profile route
 - edit post
 - like and unlike post and show in ui 
 - 
+profile Image change 
+- use multer for that 
+- create a route for change profile
+- create 
