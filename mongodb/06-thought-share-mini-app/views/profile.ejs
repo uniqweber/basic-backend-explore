@@ -54,7 +54,7 @@
             <div class="text-indigo-400"><%= post.likes.length %> Likes</div>
             <div class="flex gap-3 items-center">
               <a href="/profile/<%= user._id %>/like-post/<%= post._id %>" class="text-gray-400">
-                <%= post.likes?.indexOf(user._id) === -1 ? "Like" : "Unlike" %>
+                <%= post.likes?.includes(user._id) ? "Unlike" : "Like" %>
               </a>
               <a href="/profile/<%= user._id %>/edit-post/<%= post._id %>" class="text-gray-400">Edit</a>
               <a href="/profile/<%= user._id %>/delete-post/<%= post._id %>" class="text-gray-400">Delete</a>

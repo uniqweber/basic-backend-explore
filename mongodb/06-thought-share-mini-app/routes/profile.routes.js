@@ -5,7 +5,7 @@ const {createPost, userProfile, deletePost, likePost, editPost, updatePost} = re
 const router = express.Router();
 
 router.get("/profile/:userId", verifyToken, verifyUser, userProfile);
-router.get("/profile/:userId/like-post/:postId", verifyToken, verifyUser, likePost);
+router.get("/profile/:userId/like-post/:postId", verifyToken, likePost);
 router.get("/profile/:userId/delete-post/:postId", verifyToken, verifyUser, deletePost);
 router.get("/profile/:userId/edit-post/:postId", verifyToken, verifyUser, editPost);
 

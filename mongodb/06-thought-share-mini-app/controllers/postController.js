@@ -25,7 +25,8 @@ const createPost = async (req, res) => {
 };
 
 const likePost = async (req, res) => {
-  const {postId, userId} = req.params;
+  const {postId} = req.params;
+  const {id: userId} = req.user;
 
   const post = await Post.findById(postId);
   if (post.likes?.indexOf(userId) === -1) {
@@ -33,7 +34,7 @@ const likePost = async (req, res) => {
   } else {
     await Post.findByIdAndUpdate(postId, {$pull: {likes: userId}}, {new: true});
   }
-  res.redirect(`/profile/${userId}`);
+  res.redirect(req.headers.referer || "/profile/" + userId);
 };
 
 const editPost = async (req, res) => {
