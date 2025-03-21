@@ -1,11 +1,11 @@
 const jwt = require("jsonwebtoken");
 
 const verifyToken = (req, res, next) => {
-  const token = req.cookies.authToken;
-  if (!token) return res.redirect("/login");
+    const {authToken} = req.cookies;
+  if (!authToken) return res.redirect("/login");
 
   try {
-    const tokenDecoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const tokenDecoded = jwt.verify(authToken, process.env.JWT_SECRET_KEY);
     req.user = tokenDecoded;
     next();
   } catch (error) {

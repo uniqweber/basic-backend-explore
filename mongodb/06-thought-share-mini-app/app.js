@@ -9,9 +9,9 @@ const profileRoute = require("./routes/profile.routes");
 const allPostRoute = require("./routes/allPost.routes");
 const connectDB = require("./config/db.config");
 
+app.set("view engine", "ejs");
 app.use(cookieParser());
 app.use(express.json());
-app.set("view engine", "ejs");
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, "public")));
 

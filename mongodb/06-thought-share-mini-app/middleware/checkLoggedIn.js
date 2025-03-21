@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 const checkLoggedIn = (req, res, next) => {
-  const authToken = req.cookies?.authToken;
+  const {authToken} = req.cookies;
 
   if (authToken) {
     try {

@@ -12,8 +12,8 @@ const userProfile = async (req, res) => {
 
 const createPost = async (req, res) => {
   try {
-    const content = req.body.content;
-    const userId = req.params.userId;
+    const {content} = req.body;
+    const {userId} = req.params;
 
     const newPost = await Post.create({content, author: userId});
     await User.findByIdAndUpdate(userId, {$push: {posts: newPost._id}});
@@ -49,7 +49,7 @@ const editPost = async (req, res) => {
 
 const updatePost = async (req, res) => {
   try {
-    const content = req.body.content;
+    const {content} = req.body;
     const {userId, postId} = req.params;
     await Post.findOneAndUpdate({_id: postId}, {content}, {new: true});
     res.redirect(`/profile/${userId}`);
